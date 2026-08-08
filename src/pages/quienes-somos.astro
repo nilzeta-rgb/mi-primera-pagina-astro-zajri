@@ -34,13 +34,13 @@
         }
 
         /* =====================================================
-           ENCABEZADO - STICKY (FIJO) SIN MARGEN INFERIOR
+           ENCABEZADO - STICKY (FIJO)
         ===================================================== */
         .encabezado {
             width: 100%;
             min-height: 85px;
             background: #009BC2;
-            border-bottom: none;  /* ← ELIMINADO EL BORDE PARA QUE QUEDE PEGADO */
+            border-bottom: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -81,7 +81,6 @@
 
         /* =====================================================
            BARRA DE NAVEGACIÓN - STICKY (FIJO) 
-           AHORA SIN MARGEN SUPERIOR Y CON BORDE SUPERIOR PARA UNIR
         ===================================================== */
         .menu-navegacion {
             background-color: #050505;
@@ -93,10 +92,10 @@
             justify-content: center;
             gap: 8px;
             position: sticky;
-            top: 85px;  /* ← PEGADO JUSTO DEBAJO DEL ENCABEZADO */
+            top: 85px;
             z-index: 999;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-top: 2px solid #1c3761;  /* ← BORDE QUE UNE CON EL ENCABEZADO */
+            border-top: 2px solid #1c3761;
         }
 
         /* =====================================================
@@ -118,9 +117,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* =====================================================
-           EFECTO CUANDO EL MOUSE PASA SOBRE EL BOTÓN
-        ===================================================== */
         .boton-menu:hover {
             background-color: #808080;
             color: #ffffff;
@@ -128,17 +124,11 @@
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
         }
 
-        /* =====================================================
-           EFECTO CUANDO SE HACE CLIC
-        ===================================================== */
         .boton-menu:active {
             transform: translateY(0px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.30);
         }
 
-        /* =====================================================
-           POSICIÓN INDIVIDUAL DE CADA BOTÓN
-        ===================================================== */
         .boton-1 { left: 10px; top: 0px; }
         .boton-2 { left: 30px; top: 0px; }
         .boton-3 { left: 40px; top: 0px; }
@@ -146,8 +136,7 @@
         .boton-5 { left: 70px; top: 0px; }
 
         /* =====================================================
-           OBJETIVO - STICKY (FIJO) 
-           AHORA SE MANTIENE INMOVIL MIENTRAS EL RESTO SE DESPLAZA
+           OBJETIVO - STICKY (FIJO) - SE MANTIENE INMOVIL
         ===================================================== */
         .objetivo-sticky {
             width: 100%;
@@ -155,11 +144,14 @@
             padding: 8px 20px;
             text-align: center;
             background: #ffffff;
+            
+            /* === ESTO LO HACE INMÓVIL === */
             position: sticky;
-            top: 135px;  /* ← PEGADO JUSTO DEBAJO DEL MENÚ */
+            top: 135px;  /* Altura del encabezado (85px) + menú (50px) */
             z-index: 998;
-            border-bottom: 2px solid #1c3761;  /* ← BORDE PARA SEPARAR DEL CONTENIDO */
-            border-top: 2px solid #1c3761;      /* ← BORDE QUE UNE CON EL MENÚ */
+            
+            border-bottom: 2px solid #1c3761;
+            border-top: 2px solid #1c3761;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -174,13 +166,12 @@
         }
 
         /* =====================================================
-           CONTENEDOR GENERAL (EL RESTO SE DESPLAZA NORMAL)
+           CONTENEDOR GENERAL (EL RESTO SE DESPLAZA)
         ===================================================== */
 
         .contenedor {
             width: 96%;
             max-width: 1000px;
-
             margin: 15px auto 50px auto;
         }
 
@@ -191,21 +182,15 @@
 
         .seccion {
             display: grid;
-
             grid-template-columns: 42% 58%;
-
             width: 100%;
-
             margin-bottom: 30px;
-
             border: 1px solid #1c3761;
-
             min-height: 300px;
         }
 
         .seccion-texto {
             padding: 35px 55px;
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -213,26 +198,18 @@
 
         .seccion-imagen {
             padding: 0;
-
             min-height: 200px;
-
             overflow: hidden;
-
             border-left: 1px solid #1c3761;
-
             background-color: #eeeeee;
         }
 
         .seccion-imagen img {
             width: 100%;
             height: 100%;
-
             min-height: 300px;
-
             object-fit: cover;
-
             display: block;
-
             transition: transform 0.5s ease;
         }
 
@@ -257,9 +234,7 @@
         .objetivo h2 {
             font-size: 32px;
             line-height: 1.5;
-
             margin: 0;
-
             color: #111;
         }
 
@@ -274,9 +249,7 @@
 
         .quienes-somos h2 {
             text-align: center;
-
             font-size: 25px;
-
             margin-top: 0;
             margin-bottom: 20px;
         }
@@ -284,19 +257,14 @@
         .quienes-somos p {
             font-size: 18px;
             line-height: 1.6;
-
             text-align: justify;
-
             margin: 0 0 20px 0;
         }
 
         .nuestro-objetivo {
             text-align: center;
-
             font-size: 22px;
-
             font-weight: bold;
-
             margin-bottom: 15px;
         }
 
@@ -307,26 +275,20 @@
 
         .valores {
             list-style: none;
-
             margin: 0;
             padding: 0;
         }
 
         .valores li {
             font-size: 18px;
-
             margin: 8px 0;
-
             font-weight: bold;
         }
 
         .valores li::before {
             content: "✓";
-
             color: red;
-
             font-weight: bold;
-
             margin-right: 12px;
         }
 
@@ -337,22 +299,16 @@
 
         .valor-titulo {
             color: #8B8F00;
-
             font-size: 25px;
-
             font-weight: bold;
-
             margin-top: 0;
             margin-bottom: 20px;
         }
 
         .valor-texto {
             font-size: 18px;
-
             line-height: 1.9;
-
             text-align: justify;
-
             margin: 0;
         }
 
@@ -368,47 +324,28 @@
         .texto-movimiento {
             width: 96%;
             max-width: 1400px;
-
             margin: 15px auto 0 auto;
-
             background-color: #770202;
             color: #ffffff;
-
             border-radius: 8px;
-
             padding: 10px 0;
-
             overflow: hidden;
-
             white-space: nowrap;
         }
 
         .texto-movimiento-contenido {
             display: inline-block;
-
             padding-left: 100%;
-
             animation: moverTexto 18s linear infinite;
-
             font-size: 20px;
-
             font-weight: bold;
-
             font-family: Arial, sans-serif;
-
             letter-spacing: 2px;
         }
 
         @keyframes moverTexto {
-
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
 
 
@@ -418,21 +355,15 @@
 
         .pie-pagina {
             width: 100%;
-
             background-color: #8B8F00;
-
             color: white;
-
             padding: 25px 35px;
-
             margin-top: 40px;
-
             border-top: 2px solid #222;
         }
 
         .pie-pagina p {
             margin: 12px 0;
-
             font-size: 17px;
         }
 
@@ -442,9 +373,7 @@
 
         .linea-pie {
             border: 0;
-
             border-top: 1px solid #222;
-
             margin: 8px 0 15px 0;
         }
 
@@ -460,7 +389,6 @@
                 padding: 8px 15px;
             }
 
-            /* LOGO PARA CELULAR - MÁS PEQUEÑO */
             .logo {
                 width: 50px !important;
                 height: 35px !important;
@@ -468,7 +396,6 @@
                 left: 5px !important;
             }
 
-            /* TÍTULO MÁS PEQUEÑO PARA QUE NO SE SUPERPONGA */
             .titulo-principal {
                 font-size: 20px !important;
                 margin: 0 !important;
@@ -482,8 +409,9 @@
                 padding: 8px 15px;
             }
 
+            /* === AJUSTE PARA MÓVIL - EL OBJETIVO SIGUE INMÓVIL === */
             .objetivo-sticky {
-                top: 125px;
+                top: 125px;  /* 75px (encabezado) + 50px (menú) */
                 padding: 6px 15px;
             }
 
@@ -580,8 +508,9 @@
                 padding: 6px 10px !important;
             }
 
+            /* === AJUSTE PARA MÓVIL MUY PEQUEÑO === */
             .objetivo-sticky {
-                top: 110px !important;
+                top: 110px !important;  /* 60px + 50px */
                 padding: 4px 10px !important;
             }
 
@@ -598,28 +527,17 @@
 
 
     <!-- =====================================================
-         ENCABEZADO - STICKY (FIJO) - SIN BORDE INFERIOR
+         ENCABEZADO - STICKY (FIJO)
     ====================================================== -->
 
     <header class="encabezado">
-
-        <!-- LOGO -->
-        <img
-            src="/transp.ico"
-            alt="Logo ZAJRI"
-            class="logo"
-        >
-
-        <!-- TÍTULO -->
-        <h1 class="titulo-principal">
-            ¡QUIENES SOMOS!
-        </h1>
-
+        <img src="/transp.ico" alt="Logo ZAJRI" class="logo">
+        <h1 class="titulo-principal">¡QUIENES SOMOS!</h1>
     </header>
 
 
     <!-- =====================================================
-         MENÚ DE NAVEGACIÓN - STICKY (FIJO) - PEGADO AL ENCABEZADO
+         MENÚ DE NAVEGACIÓN - STICKY (FIJO)
     ====================================================== -->
 
     <nav class="menu-navegacion">
@@ -645,7 +563,8 @@
 
 
     <!-- =====================================================
-         OBJETIVO - STICKY (FIJO) - SE MANTIENE INMOVIL
+         OBJETIVO - STICKY (FIJO) - INMÓVIL
+         ESTE TÍTULO SE MANTIENE FIJO MIENTRAS EL RESTO SE DESPLAZA
     ====================================================== -->
 
     <section class="objetivo-sticky">
@@ -667,23 +586,15 @@
         <section class="seccion objetivo">
 
             <div class="seccion-texto">
-
                 <h2>
                     OBJETIVO PRINCIPAL,<br>
                     EL BIENESTAR DE<br>
                     NUESTROS CLIENTES
                 </h2>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/objetivo.jpg"
-                    alt="Proyecto de construcción y bienestar de clientes"
-                >
-
+                <img src="/imagenes/objetivo.jpg" alt="Proyecto de construcción y bienestar de clientes">
             </div>
 
         </section>
@@ -696,43 +607,23 @@
         <section class="seccion quienes-somos">
 
             <div class="seccion-texto">
-
-                <h2>
-                    ¡QUIENES SOMOS!
-                </h2>
-
+                <h2>¡QUIENES SOMOS!</h2>
                 <p>
                     SOMOS UNA EMPRESA INTEGRAL QUE EN FORMA
                     COORDINADA BUSCA LA SOLUCIÓN DESDE EL
                     ESTUDIO HASTA LA EJECUCIÓN DEL PROYECTO.
                 </p>
-
-                <div class="nuestro-objetivo">
-                    NUESTRO OBJETIVO
-                </div>
-
+                <div class="nuestro-objetivo">NUESTRO OBJETIVO</div>
                 <ul class="valores">
-
                     <li>RESPONSABILIDAD</li>
-
                     <li>HONESTIDAD</li>
-
                     <li>CONFIANZA</li>
-
                     <li>GARANTÍA</li>
-
                 </ul>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/quienes-somos.jpg"
-                    alt="Equipo trabajando en un proyecto de construcción"
-                >
-
+                <img src="/imagenes/quienes-somos.jpg" alt="Equipo trabajando en un proyecto de construcción">
             </div>
 
         </section>
@@ -745,11 +636,7 @@
         <section class="seccion">
 
             <div class="seccion-texto">
-
-                <h2 class="valor-titulo">
-                    RESPONSABILIDAD
-                </h2>
-
+                <h2 class="valor-titulo">RESPONSABILIDAD</h2>
                 <p class="valor-texto">
                     Asumimos cada proyecto como un compromiso,
                     desde la planificación hasta la entrega,
@@ -758,17 +645,10 @@
                     no solo se construye con materiales, se construye
                     con confianza.
                 </p>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/responsabilidad.jpg"
-                    alt="Responsabilidad y planificación en construcción"
-                >
-
+                <img src="/imagenes/responsabilidad.jpg" alt="Responsabilidad y planificación en construcción">
             </div>
 
         </section>
@@ -781,38 +661,25 @@
         <section class="seccion">
 
             <div class="seccion-texto">
-
-                <h2 class="valor-titulo">
-                    HONESTIDAD
-                </h2>
-
+                <h2 class="valor-titulo">HONESTIDAD</h2>
                 <p class="valor-texto">
                     Creemos que una relación empresarial sólida
                     comienza con la verdad.
                 </p>
-
                 <p class="valor-texto">
                     Por eso actuamos con transparencia, comunicamos
                     con claridad y asumimos nuestros compromisos
                     con integridad.
                 </p>
-
                 <p class="valor-texto">
                     Porque una obra puede tener excelentes materiales,
                     pero una empresa se construye sobre algo mucho
                     más importante: la honestidad.
                 </p>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/honestidad.jpg"
-                    alt="Honestidad y transparencia empresarial"
-                >
-
+                <img src="/imagenes/honestidad.jpg" alt="Honestidad y transparencia empresarial">
             </div>
 
         </section>
@@ -825,39 +692,26 @@
         <section class="seccion">
 
             <div class="seccion-texto">
-
-                <h2 class="valor-titulo">
-                    CONFIANZA
-                </h2>
-
+                <h2 class="valor-titulo">CONFIANZA</h2>
                 <p class="valor-texto">
                     Cada proyecto representa una decisión importante
                     para nuestros clientes.
                 </p>
-
                 <p class="valor-texto">
                     Por eso entendemos que nuestra verdadera
                     responsabilidad no termina al entregar un proyecto,
                     sino comienza desde el momento en que alguien
                     decide confiar en nosotros.
                 </p>
-
                 <p class="valor-texto">
                     Trabajamos para que esa confianza se transforme
                     en: resultados, relaciones duraderas y nuevos
                     proyectos.
                 </p>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/confianza.jpg"
-                    alt="Confianza entre empresa y cliente"
-                >
-
+                <img src="/imagenes/confianza.jpg" alt="Confianza entre empresa y cliente">
             </div>
 
         </section>
@@ -870,40 +724,27 @@
         <section class="seccion">
 
             <div class="seccion-texto">
-
-                <h2 class="valor-titulo">
-                    GARANTÍA
-                </h2>
-
+                <h2 class="valor-titulo">GARANTÍA</h2>
                 <p class="valor-texto">
                     No entendemos la garantía simplemente como una
                     condición comercial. Para nosotros representa el
                     compromiso de responder por la calidad y el
                     cumplimiento de aquello que asumimos.
                 </p>
-
                 <p class="valor-texto">
                     Cada proyecto es ejecutado con criterios técnicos,
                     responsabilidad y atención a los detalles,
                     buscando entregar soluciones que generen
                     seguridad y satisfacción en nuestros clientes.
                 </p>
-
                 <p class="valor-texto">
                     Porque cuando nuestro nombre está en un proyecto,
                     también está nuestro compromiso de respaldarlo.
                 </p>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/garantia.jpg"
-                    alt="Garantía y control de calidad en proyectos"
-                >
-
+                <img src="/imagenes/garantia.jpg" alt="Garantía y control de calidad en proyectos">
             </div>
 
         </section>
@@ -916,40 +757,27 @@
         <section class="seccion">
 
             <div class="seccion-texto">
-
-                <h2 class="valor-titulo">
-                    MEJORA CONTINUA
-                </h2>
-
+                <h2 class="valor-titulo">MEJORA CONTINUA</h2>
                 <p class="valor-texto">
                     En ZAJRI entendemos que cada proyecto es una
                     oportunidad para aprender, mejorar y encontrar
                     soluciones cada vez más eficientes.
                 </p>
-
                 <p class="valor-texto">
                     Evaluamos nuestro trabajo, escuchamos a nuestros
                     clientes y buscamos perfeccionar continuamente
                     nuestros procesos, nuestros servicios y nuestras
                     soluciones técnicas.
                 </p>
-
                 <p class="valor-texto">
                     Porque nuestro compromiso no consiste solamente
                     en hacer bien las cosas, sino en buscar siempre
                     una mejor manera de hacerlas.
                 </p>
-
             </div>
 
-
             <div class="seccion-imagen">
-
-                <img
-                    src="/imagenes/me-jora-continua.jpg"
-                    alt="Mejora continua en proyectos de ZAJRI"
-                >
-
+                <img src="/imagenes/me-jora-continua.jpg" alt="Mejora continua en proyectos de ZAJRI">
             </div>
 
         </section>
@@ -963,20 +791,14 @@
     ====================================================== -->
 
     <div class="texto-movimiento">
-
         <div class="texto-movimiento-contenido">
-
             🚧 INICIA TU PROYECTO CON ZAJRI 🚧
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
             🚧 INICIA TU PROYECTO CON ZAJRI 🚧
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
             🚧 INICIA TU PROYECTO CON ZAJRI 🚧
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
         </div>
-
     </div>
 
 
@@ -985,39 +807,31 @@
     ====================================================== -->
 
     <footer class="pie-pagina">
-
         <hr class="linea-pie">
-
         <p>
             <strong>Contactos:</strong>
             +051 995 088 120 &nbsp; — &nbsp;
             +051 954 943 112
         </p>
-
         <p>
             <strong>Correo:</strong>
             zajri.icc@gmail.com
         </p>
-
         <p>
             <strong>Web:</strong>
             https://zajri.netlify.app
         </p>
-
         <p>
             <strong>Dirección:</strong>
             Calle José María Arguedas N°112 –
             A.H. Modelo – Distrito de San Juan Bautista –
             Maynas – Loreto
         </p>
-
         <hr class="linea-pie">
-
         <p>
             <strong>Web elaborado por ZAJRI</strong> -
             Contáctenos a los teléfonos indicados para tu Web
         </p>
-
     </footer>
 
 
