@@ -1,37 +1,767 @@
+---
+// Componente Astro para Perfil de Construcción
+// Asegúrate de que las imágenes estén en: public/imagenes/construccion1.jpg, construccion2.jpg, etc.
+
+// Configuración de la galería
+const carpetaImagenes = "/imagenes/";
+const nombreBase = "construccion";
+const extension = ".jpg";
+const maximoImagenes = 200;
+
+// Textos descriptivos para cada imagen
+const textosDescriptivos: Record<number, string> = {
+  1: "Proyectos de construcción de alta calidad",
+  2: "Obras civiles y edificación en general",
+  3: "Construcción y desarrollo de infraestructura",
+  4: "Ejecución de proyectos constructivos",
+  5: "Construcción de viviendas y edificaciones",
+  6: "Obras de infraestructura urbana",
+  7: "Construcción sostenible y eficiente",
+  8: "Desarrollo de proyectos inmobiliarios",
+  9: "Supervisión y control de obras",
+  10: "Construcción de proyectos comerciales",
+  11: "Edificación de estructuras industriales",
+  12: "Calidad y seguridad en la construcción",
+  13: "ZAJRI Construcción, construyendo tu futuro",
+  14: "Proyectos de construcción innovadores",
+  15: "Obras de remodelación y ampliación",
+  16: "Construcción de espacios públicos",
+  17: "Proyectos de construcción residencial",
+  18: "Obras de ingeniería civil",
+  19: "Construcción de centros educativos",
+  20: "ZAJRI, tu aliado en construcción"
+};
+---
+
+<!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/transp.ico" />
-        <link rel="icon" href="/transp.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <title>CONSTRUCCIÓN</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/transp.ico" />
+    <title>CONSTRUCCIÓN - ZAJRI</title>
+    
+    <style is:global>
+      /* =====================================================
+         CONFIGURACIÓN GENERAL
+         ===================================================== */
+      * {
+        box-sizing: border-box;
+      }
 
-        <!-- Logo fijo -->
-        <img src="/transp.ico" alt="Logo ZAJRI" style="position: fixed; top: 10px; left: 10px; width: 60px; height: 50px; z-index: 1000;" />
+      html {
+        scroll-behavior: smooth;
+      }
 
-        <!-- Botón Volver -->
-        <a href="/" style="position: fixed; top: 10px; right: 10px; z-index: 1000; text-decoration: none;">
-            <button style="background-color: red; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">
-                ← Volver
-            </button>
-        </a>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #ffffff;
+        color: #222222;
+      }
 
-        <!-- Contenedor principal -->
-        <div style="max-width: 600px; margin: 80px auto; padding: 20px; text-align: center;">
+      /* =====================================================
+         ENCABEZADO - STICKY (FIJO)
+         ===================================================== */
+      .encabezado {
+        width: 100%;
+        min-height: 85px;
+        background: #009BC2;
+        border-bottom: 2px solid #1c3761;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 10px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      }
 
-            <h1 style="color: red; font-size: 36px;">CONSTRUCCIÓN</h1>
-            <hr style="border: 1px solid red; width: 50%; margin: 20px auto;" />
+      /* =====================================================
+         LOGO
+         ===================================================== */
+      .logo {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        width: 120px;
+        height: 70px;
+        object-fit: contain;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+      }
 
-            <!-- Imágenes verticales -->
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                <img src="/img-construccion-1.jpg" alt="Construcción 1" style="width: 100%; max-width: 500px; border-radius: 8px;" />
-                <img src="/img-construccion-2.jpg" alt="Construcción 2" style="width: 100%; max-width: 500px; border-radius: 8px;" />
-                <img src="/img-construccion-3.jpg" alt="Construcción 3" style="width: 100%; max-width: 500px; border-radius: 8px;" />
-            </div>
+      /* =====================================================
+         TÍTULO
+         ===================================================== */
+      .titulo-principal {
+        margin: 0;
+        padding: 0;
+        font-size: 32px;
+        font-weight: bold;
+        color: #000000;
+        text-align: center;
+        letter-spacing: 1px;
+      }
 
-        </div>
+      /* =====================================================
+         BARRA DE NAVEGACIÓN - STICKY (FIJO)
+         ===================================================== */
+      .menu-navegacion {
+        background-color: #050505;
+        padding: 10px 20px;
+        border-radius: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        position: sticky;
+        top: 85px;
+        z-index: 999;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
 
-    </body>
+      /* =====================================================
+         CONFIGURACIÓN GENERAL DE LOS BOTONES
+         ===================================================== */
+      .boton-menu {
+        background-color: #050505;
+        color: #ffffff;
+        border: none;
+        padding: 8px 20px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+      }
+
+      /* =====================================================
+         EFECTO CUANDO EL MOUSE PASA SOBRE EL BOTÓN
+         ===================================================== */
+      .boton-menu:hover {
+        background-color: #808080;
+        color: #ffffff;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.35);
+      }
+
+      /* =====================================================
+         EFECTO CUANDO SE HACE CLIC
+         ===================================================== */
+      .boton-menu:active {
+        transform: translateY(0px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.30);
+      }
+
+      /* =====================================================
+         POSICIÓN INDIVIDUAL DE CADA BOTÓN
+         ===================================================== */
+      .boton-1 { left: 10px; top: 0px; }
+      .boton-2 { left: 30px; top: 0px; }
+      .boton-3 { left: 40px; top: 0px; }
+      .boton-4 { left: 55px; top: 0px; }
+      .boton-5 { left: 70px; top: 0px; }
+
+      /* =====================================================
+         OBJETIVO - STICKY (FIJO)
+         ===================================================== */
+      .objetivo {
+        width: 100%;
+        margin: 0;
+        padding: 8px 20px;
+        text-align: center;
+        background: #ffffff;
+        position: sticky;
+        top: 135px;
+        z-index: 998;
+        border-bottom: 2px solid #e0e0e0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      .objetivo h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 22px;
+        line-height: 1.3;
+        font-weight: bold;
+        color: #1c3761;
+        text-align: center;
+      }
+
+      /* =====================================================
+         CONTENEDOR GENERAL
+         ===================================================== */
+      .contenedor {
+        width: 94%;
+        max-width: 1400px;
+        margin: 20px auto 60px auto;
+      }
+
+      /* =====================================================
+         GALERÍA DOS COLUMNAS
+         ===================================================== */
+      .galeria-construccion {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 50px;
+        row-gap: 60px;
+        align-items: start;
+      }
+
+      /* =====================================================
+         TARJETA DE CADA PROYECTO
+         ===================================================== */
+      .proyecto {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        position: relative;
+        overflow: visible;
+        opacity: 0;
+        transform: translateY(25px);
+        animation: entrada 0.7s ease forwards;
+      }
+
+      /* =====================================================
+         ANIMACIÓN DE ENTRADA
+         ===================================================== */
+      @keyframes entrada {
+        from {
+          opacity: 0;
+          transform: translateY(25px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Retrasos de entrada para cada proyecto */
+      .proyecto:nth-child(1) { animation-delay: 0.10s; }
+      .proyecto:nth-child(2) { animation-delay: 0.20s; }
+      .proyecto:nth-child(3) { animation-delay: 0.30s; }
+      .proyecto:nth-child(4) { animation-delay: 0.40s; }
+      .proyecto:nth-child(5) { animation-delay: 0.50s; }
+      .proyecto:nth-child(6) { animation-delay: 0.60s; }
+      .proyecto:nth-child(7) { animation-delay: 0.70s; }
+      .proyecto:nth-child(8) { animation-delay: 0.80s; }
+      .proyecto:nth-child(9) { animation-delay: 0.90s; }
+      .proyecto:nth-child(10) { animation-delay: 1.00s; }
+      .proyecto:nth-child(11) { animation-delay: 1.10s; }
+      .proyecto:nth-child(12) { animation-delay: 1.20s; }
+      .proyecto:nth-child(13) { animation-delay: 1.30s; }
+      .proyecto:nth-child(14) { animation-delay: 1.40s; }
+      .proyecto:nth-child(15) { animation-delay: 1.50s; }
+      .proyecto:nth-child(16) { animation-delay: 1.60s; }
+      .proyecto:nth-child(17) { animation-delay: 1.70s; }
+      .proyecto:nth-child(18) { animation-delay: 1.80s; }
+      .proyecto:nth-child(19) { animation-delay: 1.90s; }
+      .proyecto:nth-child(20) { animation-delay: 2.00s; }
+
+      /* =====================================================
+         IMAGEN
+         ===================================================== */
+      .proyecto img {
+        display: block;
+        width: 100%;
+        max-width: 650px;
+        height: auto;
+        max-height: 330px;
+        margin: 0 auto;
+        object-fit: contain;
+        object-position: center;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        border-radius: 0;
+        cursor: pointer;
+        transform: translateY(0) scale(1);
+        filter: brightness(1);
+        transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.65s ease;
+      }
+
+      .proyecto img:hover {
+        transform: translateY(-8px) scale(1.07);
+        filter: brightness(1.10);
+      }
+
+      /* =====================================================
+         TEXTO DESCRIPTIVO
+         ===================================================== */
+      .descripcion {
+        display: block;
+        width: 100%;
+        margin: 10px auto 0 auto;
+        padding: 0 10px;
+        font-size: 20px;
+        line-height: 1.35;
+        font-weight: bold;
+        color: #1c3761;
+        text-align: center;
+        position: relative;
+      }
+
+      .numero-proyecto {
+        display: block;
+        width: 100%;
+        margin: 7px auto 0 auto;
+        padding: 0;
+        font-size: 14px;
+        font-weight: bold;
+        color: #770202;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+
+      /* =====================================================
+         TEXTO EN MOVIMIENTO
+         ===================================================== */
+      .texto-movimiento {
+        width: 96%;
+        max-width: 1400px;
+        margin: 10px auto 0 auto;
+        padding: 11px 0;
+        background: #770202;
+        color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .texto-movimiento-contenido {
+        display: inline-block;
+        padding-left: 100%;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        animation: moverTexto 18s linear infinite;
+      }
+
+      @keyframes moverTexto {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+
+      /* =====================================================
+         PIE DE PÁGINA
+         ===================================================== */
+      .pie-pagina {
+        width: 100%;
+        margin-top: 40px;
+        padding: 25px 35px;
+        background: #8B8F00;
+        color: #ffffff;
+        border-top: 2px solid #222222;
+      }
+
+      .pie-pagina p {
+        margin: 12px 0;
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      .pie-pagina strong {
+        font-weight: bold;
+      }
+
+      .linea-pie {
+        border: 0;
+        border-top: 1px solid #222222;
+        margin: 8px 0 15px 0;
+      }
+
+      /* =====================================================
+         RESPONSIVE: TABLET
+         ===================================================== */
+      @media (max-width: 900px) {
+        .encabezado {
+          min-height: 75px;
+          padding: 8px 15px;
+        }
+        .logo {
+          width: 80px;
+          height: 50px;
+        }
+        .titulo-principal {
+          font-size: 26px;
+        }
+        .objetivo h2 {
+          font-size: 20px;
+        }
+        .menu-navegacion {
+          top: 75px;
+          padding: 8px 15px;
+        }
+        .objetivo {
+          top: 120px;
+          padding: 6px 15px;
+        }
+        .galeria-construccion {
+          column-gap: 25px;
+          row-gap: 50px;
+        }
+        .proyecto img {
+          max-height: 270px;
+        }
+        .descripcion {
+          font-size: 18px;
+        }
+        .boton-menu {
+          padding: 8px 16px;
+          font-size: 13px;
+        }
+      }
+
+      /* =====================================================
+         RESPONSIVE: CELULAR
+         ===================================================== */
+      @media (max-width: 650px) {
+        .encabezado {
+          min-height: 65px;
+          padding: 5px 10px;
+        }
+        .logo {
+          width: 50px;
+          height: 35px;
+          top: 3px;
+          left: 5px;
+        }
+        .titulo-principal {
+          font-size: 20px;
+          margin: 0;
+          line-height: 1.2;
+        }
+        .objetivo {
+          top: 110px;
+          padding: 5px 10px;
+        }
+        .objetivo h2 {
+          font-size: 16px;
+          line-height: 1.3;
+        }
+        .menu-navegacion {
+          top: 65px;
+          padding: 6px 10px;
+          gap: 5px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .boton-menu {
+          padding: 6px 12px;
+          font-size: 11px;
+          width: auto;
+          max-width: none;
+        }
+        .contenedor {
+          width: 94%;
+          margin-top: 15px;
+        }
+        .galeria-construccion {
+          grid-template-columns: 1fr;
+          column-gap: 0;
+          row-gap: 45px;
+        }
+        .proyecto img {
+          width: 100%;
+          height: auto;
+          max-height: none;
+        }
+        .descripcion {
+          width: 100%;
+          margin-top: 9px;
+          padding: 0 5px;
+          font-size: 18px;
+          line-height: 1.35;
+          text-align: center;
+        }
+        .numero-proyecto {
+          font-size: 13px;
+          text-align: center;
+        }
+        .texto-movimiento {
+          width: 94%;
+        }
+        .texto-movimiento-contenido {
+          font-size: 16px;
+          letter-spacing: 1px;
+        }
+        .pie-pagina {
+          padding: 20px;
+        }
+        .pie-pagina p {
+          font-size: 15px;
+        }
+        .boton-1, .boton-2, .boton-3, .boton-4, .boton-5 {
+          left: 0;
+          top: 0;
+        }
+      }
+
+      /* =====================================================
+         DISPOSITIVOS SIN CURSOR
+         ===================================================== */
+      @media (hover: none) {
+        .proyecto img {
+          transform: translateY(0) scale(1);
+          filter: brightness(1);
+        }
+        .boton-menu:hover {
+          background-color: #050505;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+
+      /* =====================================================
+         REDUCIR ANIMACIONES
+         ===================================================== */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .proyecto {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+        .proyecto img {
+          transition: none;
+        }
+        .texto-movimiento-contenido {
+          animation: none;
+          padding-left: 0;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- =====================================================
+         ENCABEZADO - STICKY (FIJO)
+         ===================================================== -->
+    <header class="encabezado">
+      <img src="/transp.ico" alt="Logo ZAJRI" class="logo" />
+      <h1 class="titulo-principal">CONSTRUCCIÓN</h1>
+    </header>
+
+    <!-- =====================================================
+         MENÚ DE NAVEGACIÓN - STICKY (FIJO)
+         ===================================================== -->
+    <nav class="menu-navegacion">
+      <a href="/" style="text-decoration: none;">
+        <button class="boton-menu boton-0">Inicio</button>
+      </a>
+      <a href="/quienes-somos" style="text-decoration: none;">
+        <button class="boton-menu boton-1">Quienes somos</button>
+      </a>
+      <a href="/perfil-ingenieria" style="text-decoration: none;">
+        <button class="boton-menu boton-2">Perfil de Ingeniería</button>
+      </a>
+      <a href="/perfil-comercio" style="text-decoration: none;">
+        <button class="boton-menu boton-3">Perfil de Comercio</button>
+      </a>
+      <a href="/perfil-construccion" style="text-decoration: none;">
+        <button class="boton-menu boton-4">Perfil de Construcción</button>
+      </a>
+      <a href="/contactanos" style="text-decoration: none;">
+        <button class="boton-menu boton-5">Contáctanos</button>
+      </a>
+    </nav>
+
+    <!-- =====================================================
+         OBJETIVO - STICKY (FIJO)
+         ===================================================== -->
+    <section class="objetivo">
+      <h2>OBJETIVO PRINCIPAL, EL BIENESTAR DE NUESTROS CLIENTES</h2>
+    </section>
+
+    <!-- =====================================================
+         GALERÍA CONSTRUCCIÓN
+         ===================================================== -->
+    <main class="contenedor">
+      <section id="galeriaConstruccion" class="galeria-construccion">
+        <!-- Las imágenes se cargarán con JavaScript -->
+      </section>
+    </main>
+
+    <!-- =====================================================
+         TEXTO EN MOVIMIENTO
+         ===================================================== -->
+    <div class="texto-movimiento">
+      <div class="texto-movimiento-contenido">
+        🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 CONSTRUCCIÓN • INGENIERÍA • CONSULTORÍA 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 EL BIENESTAR DE NUESTROS CLIENTES 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+         ===================================================== -->
+    <footer class="pie-pagina">
+      <hr class="linea-pie" />
+      <p><strong>Contactos:</strong> +051 995 088 120 &nbsp; — &nbsp; +051 954 943 112</p>
+      <p><strong>Correo:</strong> zajri.icc@gmail.com</p>
+      <p><strong>Web:</strong> https://zajri.netlify.app</p>
+      <p><strong>Dirección:</strong> Calle José María Arguedas N°112 – A.H. Modelo – Distrito de San Juan Bautista – Maynas – Loreto</p>
+      <hr class="linea-pie" />
+      <p><strong>Web elaborado por ZAJRI</strong> - Contáctenos a los teléfonos indicados para tu Web</p>
+    </footer>
+
+    <!-- =====================================================
+         JAVASCRIPT - DETECCIÓN AUTOMÁTICA DE IMÁGENES
+         ===================================================== -->
+    <script>
+      (function() {
+        // =========================================
+        // CONFIGURACIÓN
+        // =========================================
+        const carpeta = "/imagenes/";
+        const nombreBase = "construccion";
+        const extension = ".jpg";
+        const maximo = 200;
+        const galeria = document.getElementById("galeriaConstruccion");
+
+        // =========================================
+        // TEXTOS DE CADA IMAGEN
+        // =========================================
+        const textos = {
+          1: "Proyectos de construcción de alta calidad",
+          2: "Obras civiles y edificación en general",
+          3: "Construcción y desarrollo de infraestructura",
+          4: "Ejecución de proyectos constructivos",
+          5: "Construcción de viviendas y edificaciones",
+          6: "Obras de infraestructura urbana",
+          7: "Construcción sostenible y eficiente",
+          8: "Desarrollo de proyectos inmobiliarios",
+          9: "Supervisión y control de obras",
+          10: "Construcción de proyectos comerciales",
+          11: "Edificación de estructuras industriales",
+          12: "Calidad y seguridad en la construcción",
+          13: "ZAJRI Construcción, construyendo tu futuro",
+          14: "Proyectos de construcción innovadores",
+          15: "Obras de remodelación y ampliación",
+          16: "Construcción de espacios públicos",
+          17: "Proyectos de construcción residencial",
+          18: "Obras de ingeniería civil",
+          19: "Construcción de centros educativos",
+          20: "ZAJRI, tu aliado en construcción"
+        };
+
+        // =========================================
+        // COMPROBAR IMAGEN
+        // =========================================
+        function comprobarImagen(url) {
+          return new Promise(function(resolve) {
+            const imagen = new Image();
+            imagen.onload = function() {
+              resolve(true);
+            };
+            imagen.onerror = function() {
+              resolve(false);
+            };
+            imagen.src = url;
+          });
+        }
+
+        // =========================================
+        // CREAR TARJETA
+        // =========================================
+        function crearProyecto(numero) {
+          const proyecto = document.createElement("article");
+          proyecto.className = "proyecto";
+
+          // Imagen
+          const imagen = document.createElement("img");
+          imagen.src = carpeta + nombreBase + numero + extension;
+          imagen.alt = "Construcción ZAJRI - Proyecto " + numero;
+          imagen.loading = numero <= 4 ? "eager" : "lazy";
+
+          // Descripción
+          const descripcion = document.createElement("div");
+          descripcion.className = "descripcion";
+          descripcion.textContent = textos[numero] || "Proyectos de construcción desarrollados por ZAJRI.";
+
+          // Número de proyecto
+          const numeroProyecto = document.createElement("div");
+          numeroProyecto.className = "numero-proyecto";
+          numeroProyecto.textContent = "PROYECTO " + numero;
+
+          // Ensamblar
+          proyecto.appendChild(imagen);
+          proyecto.appendChild(descripcion);
+          proyecto.appendChild(numeroProyecto);
+
+          return proyecto;
+        }
+
+        // =========================================
+        // CARGAR GALERÍA
+        // =========================================
+        async function cargarGaleria() {
+          const comprobaciones = [];
+
+          // Comprobar imágenes
+          for (let numero = 1; numero <= maximo; numero++) {
+            const url = carpeta + nombreBase + numero + extension;
+            comprobaciones.push(
+              comprobarImagen(url).then(function(existe) {
+                return { numero: numero, existe: existe };
+              })
+            );
+          }
+
+          // Esperar resultados
+          const resultados = await Promise.all(comprobaciones);
+
+          // Ordenar numéricamente
+          resultados.sort(function(a, b) {
+            return a.numero - b.numero;
+          });
+
+          // Crear solo las que existen
+          let imagenesEncontradas = 0;
+          resultados.forEach(function(resultado) {
+            if (resultado.existe) {
+              const proyecto = crearProyecto(resultado.numero);
+              galeria.appendChild(proyecto);
+              imagenesEncontradas++;
+            }
+          });
+
+          // Si no hay imágenes
+          if (imagenesEncontradas === 0) {
+            const mensaje = document.createElement("p");
+            mensaje.textContent = "No se encontraron imágenes en /public/imagenes/.";
+            mensaje.style.width = "100%";
+            mensaje.style.textAlign = "center";
+            mensaje.style.fontSize = "20px";
+            mensaje.style.fontWeight = "bold";
+            mensaje.style.color = "#770202";
+            galeria.appendChild(mensaje);
+          }
+        }
+
+        // =========================================
+        // INICIAR
+        // =========================================
+        if (galeria) {
+          cargarGaleria();
+        }
+      })();
+    </script>
+  </body>
 </html>
