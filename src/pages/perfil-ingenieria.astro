@@ -634,13 +634,13 @@ const textosDescriptivos: Record<number, string> = {
           4: "Prensa de Concreto. Equipo p/ ensayo de control de calidad del concreto de un diseño de mezcla y de mezcla colocado en obra, mediante muestreo obtenidos en laborario y en obra",
           5: "DPL - Penetrómetro Dinámico Ligero. Equipo p/ ensayo in situ p/ evaluar las condiciones y variaciones de resistencia del terreno mediante penetración dinámica. Proporciona información p/ el diseño de cimentaciones, pavimentos y otras obras de ingeniería",
           6: "Muestreo por Diamantina: Equipo p/ extracción de testigos en roca o concreto, permitiendo determinar su comportamiento mecanico del testigo en laboratorio de una determinada obra que presenta incertidubre",
-          7: "Soluciones constructivas y técnicas",
-          8: "Desarrollo integral de proyectos",
-          9: "Supervisión y asistencia técnica especializada",
-          10: "Ingeniería para proyectos eficientes y sostenibles",
-          11: "Asesoramiento y consultoría profesional",
-          12: "Calidad y precisión en cada proyecto",
-          13: "ZAJRI Ingeniería, comprometidos con nuestros clientes"
+          7: "Disponibilidad de Balde Hidráulico y asistencia técnica especializada",
+          8: "Disponibilidad de Motobomba y asistencia técnica especializada",
+          9: "Disponibilidad de Generador Eléctrico y asistencia técnica especializada",
+          10: "Asesoramiento y consultoría en levantamiento Topográfico",
+          11: "Asesoramiento y consultoría en levantamiento Topográfico",
+          12: "Calidad y precisión satelital en diseño y ejecución de proyectos",
+          13: "DISEÑO Y CONSTRUCCIÓN DE VIVIENDAS - CONSULTORÍA DE PROYECTOS"
         };
 
         // =========================================
@@ -660,6 +660,25 @@ const textosDescriptivos: Record<number, string> = {
         }
 
         // =========================================
+        // TEXTOS PERSONALIZADOS PARA CADA IMAGEN DESPUES DE TEXTO DE IMAGEN
+        // =========================================
+        const textosProyecto = {
+          1: "LABORATORIO DE MECANICA DE SUELOS",
+          2: "LABORATORIO DE CONCRETO",
+          3: "LABORATORIO DE MECANICA DE SUELOS",
+          4: "LABORATORIO DE CONCRETO",
+          5: "LABORATORIO DE MECANICA DE SUELOS",
+          6: "LABORATORIO DE CONCRETO",
+          7: "SERVICIOS Y CONSULTORÍA",
+          8: "SERVICIOS Y CONSULTORÍA",
+          9: "SERVICIOS Y CONSULTORÍA",
+          10: "SERVICIO DE TOPOGRAFI Y CONSULTORÍA",
+          11: "ASERVICIO DE TOPOGRAFI Y CONSULTORÍA",
+          12: "SERVICIO DE TOPOGRAFI Y CONSULTORÍA",
+          13: "SERVICIO DE CONSULTORÍA"
+        };
+
+        // =========================================
         // CREAR TARJETA
         // =========================================
         function crearProyecto(numero) {
@@ -677,10 +696,10 @@ const textosDescriptivos: Record<number, string> = {
           descripcion.className = "descripcion";
           descripcion.textContent = textos[numero] || "Soluciones de ingeniería y consultoría desarrolladas por ZAJRI.";
 
-          // Número de proyecto
+          // Número de proyecto - usa el texto personalizado
           const numeroProyecto = document.createElement("div");
           numeroProyecto.className = "numero-proyecto";
-          numeroProyecto.textContent = "PROYECTO " + numero;
+          numeroProyecto.textContent = textosProyecto[numero] || "PROYECTO " + numero;
 
           // Ensamblar
           proyecto.appendChild(imagen);
@@ -689,6 +708,7 @@ const textosDescriptivos: Record<number, string> = {
 
           return proyecto;
         }
+
 
         // =========================================
         // CARGAR GALERÍA
