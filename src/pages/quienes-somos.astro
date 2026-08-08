@@ -34,13 +34,13 @@
         }
 
         /* =====================================================
-           ENCABEZADO - STICKY (FIJO)
+           ENCABEZADO - STICKY (FIJO) SIN MARGEN INFERIOR
         ===================================================== */
         .encabezado {
             width: 100%;
             min-height: 85px;
             background: #009BC2;
-            border-bottom: 2px solid #1c3761;
+            border-bottom: none;  /* ← ELIMINADO EL BORDE PARA QUE QUEDE PEGADO */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,7 +80,8 @@
         }
 
         /* =====================================================
-           BARRA DE NAVEGACIÓN - STICKY (FIJO)
+           BARRA DE NAVEGACIÓN - STICKY (FIJO) 
+           AHORA SIN MARGEN SUPERIOR Y CON BORDE SUPERIOR PARA UNIR
         ===================================================== */
         .menu-navegacion {
             background-color: #050505;
@@ -92,9 +93,10 @@
             justify-content: center;
             gap: 8px;
             position: sticky;
-            top: 85px;
+            top: 85px;  /* ← PEGADO JUSTO DEBAJO DEL ENCABEZADO */
             z-index: 999;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-top: 2px solid #1c3761;  /* ← BORDE QUE UNE CON EL ENCABEZADO */
         }
 
         /* =====================================================
@@ -144,7 +146,8 @@
         .boton-5 { left: 70px; top: 0px; }
 
         /* =====================================================
-           OBJETIVO - STICKY (FIJO)
+           OBJETIVO - STICKY (FIJO) 
+           AHORA SE MANTIENE INMOVIL MIENTRAS EL RESTO SE DESPLAZA
         ===================================================== */
         .objetivo-sticky {
             width: 100%;
@@ -153,10 +156,11 @@
             text-align: center;
             background: #ffffff;
             position: sticky;
-            top: 135px;
+            top: 135px;  /* ← PEGADO JUSTO DEBAJO DEL MENÚ */
             z-index: 998;
-            border-bottom: 2px solid #e0e0e0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid #1c3761;  /* ← BORDE PARA SEPARAR DEL CONTENIDO */
+            border-top: 2px solid #1c3761;      /* ← BORDE QUE UNE CON EL MENÚ */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         .objetivo-sticky h2 {
@@ -170,7 +174,7 @@
         }
 
         /* =====================================================
-           CONTENEDOR GENERAL
+           CONTENEDOR GENERAL (EL RESTO SE DESPLAZA NORMAL)
         ===================================================== */
 
         .contenedor {
@@ -479,12 +483,12 @@
             }
 
             .objetivo-sticky {
-                top: 120px;
+                top: 125px;
                 padding: 6px 15px;
             }
 
             .objetivo-sticky h2 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .contenedor {
@@ -570,6 +574,20 @@
                 min-height: 60px !important;
                 padding: 5px 10px !important;
             }
+
+            .menu-navegacion {
+                top: 60px !important;
+                padding: 6px 10px !important;
+            }
+
+            .objetivo-sticky {
+                top: 110px !important;
+                padding: 4px 10px !important;
+            }
+
+            .objetivo-sticky h2 {
+                font-size: 14px !important;
+            }
         }
 
     </style>
@@ -580,7 +598,7 @@
 
 
     <!-- =====================================================
-         ENCABEZADO - STICKY (FIJO)
+         ENCABEZADO - STICKY (FIJO) - SIN BORDE INFERIOR
     ====================================================== -->
 
     <header class="encabezado">
@@ -601,7 +619,7 @@
 
 
     <!-- =====================================================
-         MENÚ DE NAVEGACIÓN - STICKY (FIJO)
+         MENÚ DE NAVEGACIÓN - STICKY (FIJO) - PEGADO AL ENCABEZADO
     ====================================================== -->
 
     <nav class="menu-navegacion">
@@ -627,7 +645,7 @@
 
 
     <!-- =====================================================
-         OBJETIVO - STICKY (FIJO)
+         OBJETIVO - STICKY (FIJO) - SE MANTIENE INMOVIL
     ====================================================== -->
 
     <section class="objetivo-sticky">
@@ -636,7 +654,7 @@
 
 
     <!-- =====================================================
-         CONTENIDO PRINCIPAL
+         CONTENIDO PRINCIPAL - ESTO SE DESPLAZA
     ====================================================== -->
 
     <main class="contenedor">
