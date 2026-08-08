@@ -543,13 +543,119 @@
                 left: 0;
                 top: 0;
             }
+
+            /* === NUEVO: ENCABEZADO DE EMPRESA EN MÓVIL === */
+            .empresa-header {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 5px !important;
+                padding: 10px !important;
+            }
+
+            .empresa-header .logo-empresa {
+                width: 60px !important;
+                height: 40px !important;
+            }
+
+            .empresa-header .texto-completo {
+                display: none !important;
+            }
+
+            .empresa-header .texto-corto {
+                display: block !important;
+                font-size: 14px !important;
+                line-height: 1.4 !important;
+            }
+
+            .empresa-header .ruc {
+                font-size: 12px !important;
+                margin-top: 2px !important;
+            }
         }
 
+        @media (max-width: 480px) {
+            .empresa-header .texto-corto {
+                font-size: 12px !important;
+            }
+            .empresa-header .ruc {
+                font-size: 10px !important;
+            }
+            .empresa-header .logo-empresa {
+                width: 50px !important;
+                height: 30px !important;
+            }
+        }
+
+        /* === ESTILOS DEL ENCABEZADO DE EMPRESA === */
+        .empresa-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: #f5f5f5;
+            padding: 10px 20px;
+            border-bottom: 2px solid #1c3761;
+            flex-wrap: wrap;
+        }
+
+        .empresa-header .logo-empresa {
+            width: 100px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .empresa-header .texto-completo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1c3761;
+            margin: 0;
+        }
+
+        .empresa-header .texto-corto {
+            display: none;
+            font-weight: bold;
+            color: #1c3761;
+            margin: 0;
+        }
+
+        .empresa-header .ruc {
+            font-size: 14px;
+            font-weight: bold;
+            color: #770202;
+            margin: 0;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
 
 <body>
+
+    <!-- =====================================================
+         ENCABEZADO DE EMPRESA (NUEVO)
+    ====================================================== -->
+    <div class="empresa-header">
+
+        <!-- LOGO -->
+        <img class="logo-empresa" src="/transp.ico" alt="Logo ZAJRI">
+
+        <!-- TEXTO COMPLETO (se oculta en móvil) -->
+        <div class="texto-completo">
+            ZAJRI INGENIERÍA COMERCIO CONSTRUCCIÓN E.I.R.L.
+        </div>
+
+        <!-- TEXTO CORTO (se muestra SOLO en móvil) -->
+        <div class="texto-corto">
+            ZAJRI INGENIERÍA<br>
+            COMERCIO CONSTRUCCIÓN<br>
+            E.I.R.L.
+        </div>
+
+        <!-- RUC -->
+        <div class="ruc">RUC Nº 20616102681</div>
+
+    </div>
 
 
     <!-- =====================================================
