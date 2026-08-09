@@ -138,20 +138,26 @@
 
         /* =====================================================
            OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+           CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
         ===================================================== */
         .objetivo-sticky {
             width: 100%;
             margin: 0;
             padding: 8px 20px;
             text-align: center;
-            background: #ffffff;
             
             /* === ESTO LO HACE COMPLETAMENTE FIJO === */
             position: sticky;
             top: 135px;  /* 85px (encabezado) + 50px (menú) */
             z-index: 998;
             
+            /* === FONDO BLANCO PARA CUBRIR EL CONTENIDO === */
+            background-color: #ffffff;
+            
+            /* === BORDES PARA DARLE MARCO === */
             border-bottom: 2px solid #1c3761;
+            border-top: 2px solid #1c3761;
+            
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -409,10 +415,11 @@
                 padding: 8px 15px;
             }
 
-            /* === OBJETIVO FIJO EN MÓVIL === */
+            /* === OBJETIVO FIJO EN MÓVIL CON FONDO BLANCO === */
             .objetivo-sticky {
                 top: 125px;  /* 75px (encabezado) + 50px (menú) */
                 padding: 6px 15px;
+                background-color: #ffffff !important;
             }
 
             .objetivo-sticky h2 {
@@ -511,6 +518,7 @@
             .objetivo-sticky {
                 top: 110px !important;  /* 60px + 50px */
                 padding: 4px 10px !important;
+                background-color: #ffffff !important;
             }
 
             .objetivo-sticky h2 {
@@ -563,7 +571,7 @@
 
     <!-- =====================================================
          OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
-         ESTE TÍTULO SE MANTIENE FIJO IGUAL QUE EL ENCABEZADO Y EL MENÚ
+         CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
     ====================================================== -->
 
     <section class="objetivo-sticky">
