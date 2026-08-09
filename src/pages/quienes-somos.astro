@@ -96,6 +96,7 @@
             z-index: 999;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             border-top: 2px solid #1c3761;
+            border-bottom: 2px solid #1c3761;
         }
 
         /* =====================================================
@@ -136,7 +137,7 @@
         .boton-5 { left: 70px; top: 0px; }
 
         /* =====================================================
-           OBJETIVO - STICKY (FIJO) - SE MANTIENE INMOVIL
+           OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
         ===================================================== */
         .objetivo-sticky {
             width: 100%;
@@ -145,13 +146,12 @@
             text-align: center;
             background: #ffffff;
             
-            /* === ESTO LO HACE INMÓVIL === */
+            /* === ESTO LO HACE COMPLETAMENTE FIJO === */
             position: sticky;
-            top: 135px;  /* Altura del encabezado (85px) + menú (50px) */
+            top: 135px;  /* 85px (encabezado) + 50px (menú) */
             z-index: 998;
             
             border-bottom: 2px solid #1c3761;
-            border-top: 2px solid #1c3761;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -409,7 +409,7 @@
                 padding: 8px 15px;
             }
 
-            /* === AJUSTE PARA MÓVIL - EL OBJETIVO SIGUE INMÓVIL === */
+            /* === OBJETIVO FIJO EN MÓVIL === */
             .objetivo-sticky {
                 top: 125px;  /* 75px (encabezado) + 50px (menú) */
                 padding: 6px 15px;
@@ -508,7 +508,6 @@
                 padding: 6px 10px !important;
             }
 
-            /* === AJUSTE PARA MÓVIL MUY PEQUEÑO === */
             .objetivo-sticky {
                 top: 110px !important;  /* 60px + 50px */
                 padding: 4px 10px !important;
@@ -563,8 +562,8 @@
 
 
     <!-- =====================================================
-         OBJETIVO - STICKY (FIJO) - INMÓVIL
-         ESTE TÍTULO SE MANTIENE FIJO MIENTRAS EL RESTO SE DESPLAZA
+         OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+         ESTE TÍTULO SE MANTIENE FIJO IGUAL QUE EL ENCABEZADO Y EL MENÚ
     ====================================================== -->
 
     <section class="objetivo-sticky">
