@@ -61,7 +61,7 @@ const textosDescriptivos: Record<number, string> = {
         width: 100%;
         min-height: 85px;
         background: #009BC2;
-        border-bottom: 2px solid #1c3761;
+        border-bottom: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -115,7 +115,9 @@ const textosDescriptivos: Record<number, string> = {
         position: sticky;
         top: 85px;
         z-index: 999;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-top: 2px solid #1c3761;
+        border-bottom: 2px solid #1c3761;
       }
 
       /* =====================================================
@@ -165,22 +167,31 @@ const textosDescriptivos: Record<number, string> = {
       .boton-5 { left: 70px; top: 0px; }
 
       /* =====================================================
-         OBJETIVO - STICKY (FIJO)
+         OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+         CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
          ===================================================== */
-      .objetivo {
+      .objetivo-sticky {
         width: 100%;
         margin: 0;
         padding: 8px 20px;
         text-align: center;
-        background: #ffffff;
+        
+        /* === ESTO LO HACE COMPLETAMENTE FIJO === */
         position: sticky;
-        top: 135px;
+        top: 135px;  /* 85px (encabezado) + 50px (menú) */
         z-index: 998;
-        border-bottom: 2px solid #e0e0e0;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        
+        /* === FONDO BLANCO PARA CUBRIR EL CONTENIDO === */
+        background-color: #ffffff;
+        
+        /* === BORDES PARA DARLE MARCO === */
+        border-bottom: 2px solid #1c3761;
+        border-top: 2px solid #1c3761;
+        
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       }
 
-      .objetivo h2 {
+      .objetivo-sticky h2 {
         margin: 0;
         padding: 0;
         font-size: 22px;
@@ -196,7 +207,7 @@ const textosDescriptivos: Record<number, string> = {
       .contenedor {
         width: 94%;
         max-width: 1400px;
-        margin: 20px auto 60px auto;
+        margin: 15px auto 60px auto;
       }
 
       /* =====================================================
@@ -386,16 +397,17 @@ const textosDescriptivos: Record<number, string> = {
         .titulo-principal {
           font-size: 26px;
         }
-        .objetivo h2 {
-          font-size: 20px;
-        }
         .menu-navegacion {
           top: 75px;
           padding: 8px 15px;
         }
-        .objetivo {
-          top: 120px;
+        .objetivo-sticky {
+          top: 127px;
           padding: 6px 15px;
+          background-color: #ffffff !important;
+        }
+        .objetivo-sticky h2 {
+          font-size: 20px;
         }
         .galeria-ingenieria {
           column-gap: 25px;
@@ -422,37 +434,29 @@ const textosDescriptivos: Record<number, string> = {
           padding: 5px 10px;
         }
         .logo {
-          width: 50px;
-          height: 35px;
-          top: 3px;
-          left: 5px;
+          width: 50px !important;
+          height: 35px !important;
+          top: 5px !important;
+          left: 5px !important;
         }
         .titulo-principal {
-          font-size: 20px;
-          margin: 0;
-          line-height: 1.2;
-        }
-        .objetivo {
-          top: 110px;
-          padding: 5px 10px;
-        }
-        .objetivo h2 {
-          font-size: 16px;
-          line-height: 1.3;
+          font-size: 20px !important;
+          margin: 0 !important;
+          padding: 0 50px !important;
+          line-height: 1.2 !important;
+          letter-spacing: 0.5px !important;
         }
         .menu-navegacion {
           top: 65px;
-          padding: 6px 10px;
-          gap: 5px;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
+          padding: 8px 15px;
         }
-        .boton-menu {
-          padding: 6px 12px;
-          font-size: 11px;
-          width: auto;
-          max-width: none;
+        .objetivo-sticky {
+          top: 117px;
+          padding: 6px 15px;
+          background-color: #ffffff !important;
+        }
+        .objetivo-sticky h2 {
+          font-size: 18px !important;
         }
         .contenedor {
           width: 94%;
@@ -493,9 +497,53 @@ const textosDescriptivos: Record<number, string> = {
         .pie-pagina p {
           font-size: 15px;
         }
+        .boton-menu {
+          padding: 6px 12px !important;
+          font-size: 11px !important;
+          width: auto;
+          max-width: none;
+        }
         .boton-1, .boton-2, .boton-3, .boton-4, .boton-5 {
           left: 0;
           top: 0;
+        }
+      }
+
+      /* =====================================================
+         PARA PANTALLAS MUY PEQUEÑAS (MENOS DE 480px)
+         ===================================================== */
+      @media (max-width: 480px) {
+        .logo {
+          width: 40px !important;
+          height: 28px !important;
+          top: 3px !important;
+          left: 3px !important;
+        }
+
+        .titulo-principal {
+          font-size: 16px !important;
+          padding: 0 40px !important;
+          letter-spacing: 0px !important;
+        }
+
+        .encabezado {
+          min-height: 60px !important;
+          padding: 5px 10px !important;
+        }
+
+        .menu-navegacion {
+          top: 60px !important;
+          padding: 6px 10px !important;
+        }
+
+        .objetivo-sticky {
+          top: 112px !important;
+          padding: 4px 10px !important;
+          background-color: #ffffff !important;
+        }
+
+        .objetivo-sticky h2 {
+          font-size: 14px !important;
         }
       }
 
@@ -571,9 +619,10 @@ const textosDescriptivos: Record<number, string> = {
     </nav>
 
     <!-- =====================================================
-         OBJETIVO - STICKY (FIJO)
+         OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+         CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
          ===================================================== -->
-    <section class="objetivo">
+    <section class="objetivo-sticky">
       <h2>OBJETIVO PRINCIPAL, EL BIENESTAR DE NUESTROS CLIENTES</h2>
     </section>
 
