@@ -205,7 +205,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        margin-bottom: 35px;
+        margin-bottom: 0;
       }
 
       .info-item {
@@ -233,73 +233,6 @@
         font-size: 24px;
         display: block;
         margin-bottom: 5px;
-      }
-
-      /* =====================================================
-         FORMULARIO DE CONTACTO
-         ===================================================== */
-      .formulario-contacto {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .form-group label {
-        font-weight: bold;
-        font-size: 15px;
-        color: #1c3761;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        padding: 12px 15px;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 16px;
-        font-family: Arial, sans-serif;
-        transition: border-color 0.3s ease;
-        background: white;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: #009BC2;
-        box-shadow: 0 0 0 3px rgba(0, 155, 194, 0.15);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 130px;
-      }
-
-      .boton-enviar {
-        background: #009BC2;
-        color: white;
-        border: none;
-        padding: 14px 30px;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 5px;
-      }
-
-      .boton-enviar:hover {
-        background: #007a9e;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 155, 194, 0.3);
-      }
-
-      .boton-enviar:active {
-        transform: translateY(0);
       }
 
       /* =====================================================
@@ -464,15 +397,6 @@
         .info-item span {
           font-size: 14px;
         }
-        .form-group input,
-        .form-group textarea {
-          font-size: 14px;
-          padding: 10px 12px;
-        }
-        .boton-enviar {
-          font-size: 16px;
-          padding: 12px 20px;
-        }
         .texto-movimiento {
           width: 94%;
         }
@@ -494,11 +418,6 @@
       @media (hover: none) {
         .boton-menu:hover {
           background-color: #050505;
-          transform: none;
-          box-shadow: none;
-        }
-        .boton-enviar:hover {
-          background: #009BC2;
           transform: none;
           box-shadow: none;
         }
@@ -564,7 +483,7 @@
          ===================================================== -->
     <main class="contenedor">
       <h1 class="titulo-contacto">📞 CONTÁCTANOS</h1>
-      <p class="subtitulo-contacto">Estamos aquí para ayudarte. Completa el formulario y nos pondremos en contacto contigo.</p>
+      <p class="subtitulo-contacto">Estamos aquí para ayudarte. Contáctanos a través de cualquiera de nuestros canales.</p>
 
       <!-- Información de contacto -->
       <div class="info-contacto">
@@ -589,41 +508,6 @@
           <span>Calle José María Arguedas N°112<br>A.H. Modelo – San Juan Bautista – Loreto</span>
         </div>
       </div>
-
-      <!-- =====================================================
-         FORMULARIO DE CONTACTO CON NETLIFY FORMS
-         ===================================================== -->
-      <form class="formulario-contacto" netlify name="contacto" method="POST" netlify-honeypot="bot-field">
-        <!-- Campo oculto para Netlify -->
-        <input type="hidden" name="form-name" value="contacto" />
-        
-        <!-- Campo honeypot (antispam) - oculto para humanos -->
-        <div style="display: none;">
-          <label>No llenes este campo si eres humano: <input name="bot-field" /></label>
-        </div>
-
-        <div class="form-group">
-          <label for="nombre">Nombre completo *</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required />
-        </div>
-
-        <div class="form-group">
-          <label for="email">Correo electrónico *</label>
-          <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required />
-        </div>
-
-        <div class="form-group">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu número de teléfono" />
-        </div>
-
-        <div class="form-group">
-          <label for="mensaje">Mensaje *</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        </div>
-
-        <button type="submit" class="boton-enviar">📩 Enviar mensaje</button>
-      </form>
     </main>
 
     <!-- =====================================================
