@@ -1,6 +1,9 @@
 ---
-// Componente Astro para Perfil de Construcción
-// Asegúrate de que las imágenes estén en: public/imagenes/construccion1.jpg, construccion2.jpg, etc.
+/**
+ * Componente Astro para Perfil de Construcción
+ * Asegúrate de que las imágenes estén en:
+ * public/imagenes/construccion1.jpg, construccion2.jpg, etc.
+ */
 
 // Configuración de la galería
 const carpetaImagenes = "/imagenes/";
@@ -40,7 +43,7 @@ const textosDescriptivos: Record<number, string> = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/transp.ico" />
     <title>CONSTRUCCIÓN - ZAJRI</title>
-    
+
     <style is:global>
       /* =====================================================
          CONFIGURACIÓN GENERAL
@@ -390,34 +393,43 @@ const textosDescriptivos: Record<number, string> = {
           min-height: 75px;
           padding: 8px 15px;
         }
+
         .logo {
           width: 80px;
           height: 50px;
         }
+
         .titulo-principal {
           font-size: 26px;
         }
+
         .objetivo h2 {
           font-size: 20px;
         }
+
         .menu-navegacion {
           top: 75px;
           padding: 8px 15px;
         }
+
         .objetivo {
           top: 120px;
           padding: 6px 15px;
         }
+
         .galeria-construccion {
           column-gap: 25px;
           row-gap: 50px;
         }
+
         .proyecto img {
           max-height: 270px;
         }
+
         .descripcion {
           font-size: 18px;
         }
+
         .boton-menu {
           padding: 8px 16px;
           font-size: 13px;
@@ -432,25 +444,30 @@ const textosDescriptivos: Record<number, string> = {
           min-height: 65px;
           padding: 5px 10px;
         }
+
         .logo {
           width: 50px;
           height: 35px;
           top: 3px;
           left: 5px;
         }
+
         .titulo-principal {
           font-size: 20px;
           margin: 0;
           line-height: 1.2;
         }
+
         .objetivo {
           top: 110px;
           padding: 5px 10px;
         }
+
         .objetivo h2 {
           font-size: 16px;
           line-height: 1.3;
         }
+
         .menu-navegacion {
           top: 65px;
           padding: 6px 10px;
@@ -459,26 +476,31 @@ const textosDescriptivos: Record<number, string> = {
           flex-wrap: wrap;
           justify-content: center;
         }
+
         .boton-menu {
           padding: 6px 12px;
           font-size: 11px;
           width: auto;
           max-width: none;
         }
+
         .contenedor {
           width: 94%;
           margin-top: 15px;
         }
+
         .galeria-construccion {
           grid-template-columns: 1fr;
           column-gap: 0;
           row-gap: 45px;
         }
+
         .proyecto img {
           width: 100%;
           height: auto;
           max-height: none;
         }
+
         .descripcion {
           width: 100%;
           margin-top: 9px;
@@ -487,23 +509,29 @@ const textosDescriptivos: Record<number, string> = {
           line-height: 1.35;
           text-align: center;
         }
+
         .numero-proyecto {
           font-size: 13px;
           text-align: center;
         }
+
         .texto-movimiento {
           width: 94%;
         }
+
         .texto-movimiento-contenido {
           font-size: 16px;
           letter-spacing: 1px;
         }
+
         .pie-pagina {
           padding: 20px;
         }
+
         .pie-pagina p {
           font-size: 15px;
         }
+
         .boton-1, .boton-2, .boton-3, .boton-4, .boton-5 {
           left: 0;
           top: 0;
@@ -518,6 +546,7 @@ const textosDescriptivos: Record<number, string> = {
           transform: translateY(0) scale(1);
           filter: brightness(1);
         }
+
         .boton-menu:hover {
           background-color: #050505;
           transform: none;
@@ -532,14 +561,17 @@ const textosDescriptivos: Record<number, string> = {
         html {
           scroll-behavior: auto;
         }
+
         .proyecto {
           animation: none;
           opacity: 1;
           transform: none;
         }
+
         .proyecto img {
           transition: none;
         }
+
         .texto-movimiento-contenido {
           animation: none;
           padding-left: 0;
@@ -547,7 +579,7 @@ const textosDescriptivos: Record<number, string> = {
       }
     </style>
   </head>
-  
+
   <body>
     <!-- =====================================================
          ENCABEZADO - STICKY (FIJO)
@@ -564,18 +596,23 @@ const textosDescriptivos: Record<number, string> = {
       <a href="/" style="text-decoration: none;">
         <button class="boton-menu boton-0">INICIO</button>
       </a>
+
       <a href="/quienes-somos" style="text-decoration: none;">
         <button class="boton-menu boton-1">QUIENES SOMOS</button>
       </a>
+
       <a href="/perfil-ingenieria" style="text-decoration: none;">
         <button class="boton-menu boton-2">INGENIERÍA - CONSULTORÍA</button>
       </a>
+
       <a href="/perfil-comercio" style="text-decoration: none;">
         <button class="boton-menu boton-3">COMERCIO</button>
       </a>
+
       <a href="/perfil-construccion" style="text-decoration: none;">
         <button class="boton-menu boton-4">CONSTRUCCIÓN</button>
       </a>
+
       <a href="/contactanos" style="text-decoration: none;">
         <button class="boton-menu boton-5">CONTÁCTANOS</button>
       </a>
@@ -603,8 +640,8 @@ const textosDescriptivos: Record<number, string> = {
     <div class="texto-movimiento">
       <div class="texto-movimiento-contenido">
         🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        🚧 CONSTRUCCIÓN • INGENIERÍA • CONSULTORÍA 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        🚧 EL BIENESTAR DE NUESTROS CLIENTES 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
@@ -613,12 +650,34 @@ const textosDescriptivos: Record<number, string> = {
          ===================================================== -->
     <footer class="pie-pagina">
       <hr class="linea-pie" />
-      <p><strong>Contactos:</strong> +051 995 088 120 &nbsp; — &nbsp; +051 954 943 112</p>
-      <p><strong>Correo:</strong> zajri.icc@gmail.com</p>
-      <p><strong>Web:</strong> https://zajri.netlify.app</p>
-      <p><strong>Dirección:</strong> Calle José María Arguedas N°112 – A.H. Modelo – Distrito de San Juan Bautista – Maynas – Loreto</p>
+
+      <p>
+        <strong>Contactos:</strong>
+        +051 995 088 120 &nbsp; — &nbsp; +051 954 943 112
+      </p>
+
+      <p>
+        <strong>Correo:</strong>
+        zajri.icc@gmail.com
+      </p>
+
+      <p>
+        <strong>Web:</strong>
+        https://zajri.netlify.app
+      </p>
+
+      <p>
+        <strong>Dirección:</strong>
+        Calle José María Arguedas N°112 – A.H. Modelo – Distrito de San Juan
+        Bautista – Maynas – Loreto
+      </p>
+
       <hr class="linea-pie" />
-      <p><strong>Web elaborado por ZAJRI</strong> - Contáctenos a los teléfonos indicados para tu Web</p>
+
+      <p>
+        <strong>Web elaborado por ZAJRI</strong> -
+        Contáctenos a los teléfonos indicados para tu Web
+      </p>
     </footer>
 
     <!-- =====================================================
@@ -626,6 +685,7 @@ const textosDescriptivos: Record<number, string> = {
          ===================================================== -->
     <script>
       (function() {
+
         // =========================================
         // CONFIGURACIÓN
         // =========================================
@@ -639,26 +699,53 @@ const textosDescriptivos: Record<number, string> = {
         // TEXTOS DE CADA IMAGEN
         // =========================================
         const textos = {
-          1: "Proyectos de construcción de alta calidad",
-          2: "Obras civiles y edificación en general",
-          3: "Construcción y desarrollo de infraestructura",
-          4: "Ejecución de proyectos constructivos",
-          5: "Construcción de viviendas y edificaciones",
-          6: "Obras de infraestructura urbana",
-          7: "Construcción sostenible y eficiente",
-          8: "Desarrollo de proyectos inmobiliarios",
-          9: "Supervisión y control de obras",
-          10: "Construcción de proyectos comerciales",
-          11: "Edificación de estructuras industriales",
-          12: "Calidad y seguridad en la construcción",
-          13: "ZAJRI Construcción, construyendo tu futuro",
-          14: "Proyectos de construcción innovadores",
-          15: "Obras de remodelación y ampliación",
-          16: "Construcción de espacios públicos",
-          17: "Proyectos de construcción residencial",
-          18: "Obras de ingeniería civil",
-          19: "Construcción de centros educativos",
-          20: "ZAJRI, tu aliado en construcción"
+          1: "Apertura de vía de acceso para línea de Impulsión de agua y Petróleo - 8 km",
+          2: "Apertura de vía de acceso para línea de Impulsión de agua y Petróleo - 8 km",
+          3: "Reparación de Pontón de captación de Agua",
+          4: "Reparación de Pontón de captación de Agua - Estructura de techo",
+          5: "Construcción de pedestales p/ soporte de 20 tn - Patio Set Santa Rosa",
+          6: "Construcción de pedestales p/ soporte de 20 tn - Patio Set Santa Rosa",
+          7: "Construcción de cerco perimetrico 1660 m c/ Pilotaje de tubos y alambre de puas",
+          8: "Soldadura en Argon (GTAW/GMAW), p/ armado y montaje de SPOOL en TRATADORES",
+          9: "Soldadura en Argon (GTAW/GMAW), p/ armado y montaje de SPOOL en TRATADORES",
+          10: "Construcción de estructuras metálicas y obras civiles en muelle - Procedimiento (FCAW/GTAW)",
+          11: "Construcción de estructuras metálicas y obras civiles en muelle - Procedimiento (FCAW/GTAW)",
+          12: "Construcción de estructuras metálicas y obras civiles en muelle - Procedimiento (FCAW/GTAW)",
+          13: "Mantenimiento y pintado de 13 tanque de petroleo crudo 450 bls",
+          14: "Construcción de tanque elevado de mortero armado 8 m3",
+          15: "Construcción de vivienda de 4 niveles",
+          16: "Construcción de vivienda de 4 niveles",
+          17: "Construcción de vivienda de 4 niveles",
+          18: "Construcción de vivienda de 1 nivel",
+          19: "Construcción de pavimento rigido",
+          20: "Construcción de pavimento rigido"
+        };
+
+        // =========================================
+        // TEXTOS PERSONALIZADOS PARA CADA IMAGEN
+        // APARECEN DEBAJO DEL TEXTO AZUL
+        // =========================================
+        const textosProyecto = {
+          1: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY LOTE-2 Y LOTE-4 - BASE BRETAÑA",
+          2: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY LOTE-2 Y LOTE-4 - BASE BRETAÑA",
+          3: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          4: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          5: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          6: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          7: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY - BASE BRETAÑA - LOTE-2",
+          8: "PERSONAL QUE LABORO P/ SCHLUMNBERGER DEL PERU - BASE BRETAÑA - LOTE-2",
+          9: "PERSONAL QUE LABORO P/ SCHLUMNBERGER DEL PERU  - BASE BRETAÑA - LOTE-2",
+          10: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          11: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          12: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          13: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY - BASE BRETAÑA - LOTE-2",
+          14: "PERSONAL QUE LABORO EN OBRA DE SANEAMIENTO - COMUNIDAD SAN JOSE - RIO CORRIENTE - PNSR - LORETO",
+          15: "PERSONAL QUE LABORO EN DISEÑO Y CONSTRUCCIÓN DE VIVIENDA - PUNCHANA - IQUITOS",
+          16: "PERSONAL QUE LABORO EN DISEÑO Y CONSTRUCCIÓN DE VIVIENDA - PUNCHANA - IQUITOS",
+          17: "PERSONAL QUE LABORO EN DISEÑO Y CONSTRUCCIÓN DE VIVIENDA - PUNCHANA - IQUITOS",
+          18: "PERSONAL QUE LABORO EN DISEÑO Y CONSTRUCCIÓN DE VIVIENDA - SAN JUAN BAUTISTA - IQUITOS",
+          19: "PERSONAL QUE LABORO EN LA SUPERVISIÓN DE LA OBRA - MUNICIPALIDAD SAN JUAN B. - LORETO",
+          20: "PERSONAL QUE LABORO EN LA SUPERVISIÓN DE LA OBRA - MUNICIPALIDAD SAN JUAN B. - LORETO"
         };
 
         // =========================================
@@ -667,12 +754,15 @@ const textosDescriptivos: Record<number, string> = {
         function comprobarImagen(url) {
           return new Promise(function(resolve) {
             const imagen = new Image();
+
             imagen.onload = function() {
               resolve(true);
             };
+
             imagen.onerror = function() {
               resolve(false);
             };
+
             imagen.src = url;
           });
         }
@@ -681,6 +771,7 @@ const textosDescriptivos: Record<number, string> = {
         // CREAR TARJETA
         // =========================================
         function crearProyecto(numero) {
+
           const proyecto = document.createElement("article");
           proyecto.className = "proyecto";
 
@@ -690,17 +781,26 @@ const textosDescriptivos: Record<number, string> = {
           imagen.alt = "Construcción ZAJRI - Proyecto " + numero;
           imagen.loading = numero <= 4 ? "eager" : "lazy";
 
-          // Descripción
+          // =========================================
+          // DESCRIPCIÓN - TEXTO AZUL
+          // =========================================
           const descripcion = document.createElement("div");
           descripcion.className = "descripcion";
-          descripcion.textContent = textos[numero] || "Proyectos de construcción desarrollados por ZAJRI.";
+          descripcion.textContent =
+            textos[numero] ||
+            "Proyectos de construcción desarrollados por ZAJRI.";
 
-          // Número de proyecto
+          // =========================================
+          // SEGUNDO TEXTO - TEXTO ROJO
+          // =========================================
           const numeroProyecto = document.createElement("div");
           numeroProyecto.className = "numero-proyecto";
-          numeroProyecto.textContent = "PROYECTO " + numero;
+          numeroProyecto.textContent =
+            textosProyecto[numero] || "PROYECTO " + numero;
 
-          // Ensamblar
+          // =========================================
+          // ENSAMBLAR
+          // =========================================
           proyecto.appendChild(imagen);
           proyecto.appendChild(descripcion);
           proyecto.appendChild(numeroProyecto);
@@ -712,14 +812,21 @@ const textosDescriptivos: Record<number, string> = {
         // CARGAR GALERÍA
         // =========================================
         async function cargarGaleria() {
+
           const comprobaciones = [];
 
           // Comprobar imágenes
           for (let numero = 1; numero <= maximo; numero++) {
-            const url = carpeta + nombreBase + numero + extension;
+
+            const url =
+              carpeta + nombreBase + numero + extension;
+
             comprobaciones.push(
               comprobarImagen(url).then(function(existe) {
-                return { numero: numero, existe: existe };
+                return {
+                  numero: numero,
+                  existe: existe
+                };
               })
             );
           }
@@ -734,23 +841,35 @@ const textosDescriptivos: Record<number, string> = {
 
           // Crear solo las que existen
           let imagenesEncontradas = 0;
+
           resultados.forEach(function(resultado) {
+
             if (resultado.existe) {
-              const proyecto = crearProyecto(resultado.numero);
+
+              const proyecto =
+                crearProyecto(resultado.numero);
+
               galeria.appendChild(proyecto);
+
               imagenesEncontradas++;
             }
           });
 
           // Si no hay imágenes
           if (imagenesEncontradas === 0) {
-            const mensaje = document.createElement("p");
-            mensaje.textContent = "No se encontraron imágenes en /public/imagenes/.";
+
+            const mensaje =
+              document.createElement("p");
+
+            mensaje.textContent =
+              "No se encontraron imágenes en /public/imagenes/.";
+
             mensaje.style.width = "100%";
             mensaje.style.textAlign = "center";
             mensaje.style.fontSize = "20px";
             mensaje.style.fontWeight = "bold";
             mensaje.style.color = "#770202";
+
             galeria.appendChild(mensaje);
           }
         }
@@ -761,6 +880,7 @@ const textosDescriptivos: Record<number, string> = {
         if (galeria) {
           cargarGaleria();
         }
+
       })();
     </script>
   </body>
