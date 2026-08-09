@@ -31,11 +31,10 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: white;
             color: #222;
-            padding-top: 185px; /* ← ESPACIO PARA LOS 3 ELEMENTOS FIJOS */
         }
 
         /* =====================================================
-           ENCABEZADO - FIXED (FIJO)
+           ENCABEZADO - STICKY (FIJO)
         ===================================================== */
         .encabezado {
             width: 100%;
@@ -45,9 +44,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
             z-index: 1000;
             padding: 10px 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -82,7 +80,7 @@
         }
 
         /* =====================================================
-           BARRA DE NAVEGACIÓN - FIXED (FIJO)
+           BARRA DE NAVEGACIÓN - STICKY (FIJO) 
         ===================================================== */
         .menu-navegacion {
             background-color: #050505;
@@ -93,10 +91,8 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 8px;
-            position: fixed;
+            position: sticky;
             top: 85px;
-            left: 0;
-            width: 100%;
             z-index: 999;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             border-top: 2px solid #1c3761;
@@ -141,24 +137,27 @@
         .boton-5 { left: 70px; top: 0px; }
 
         /* =====================================================
-           OBJETIVO - FIXED (FIJO) - COMPLETAMENTE INMÓVIL
-           AHORA CON POSITION: FIXED PARA GARANTIZAR QUE NO SE MUEVA
+           OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+           CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
         ===================================================== */
         .objetivo-sticky {
             width: 100%;
             margin: 0;
             padding: 8px 20px;
             text-align: center;
-            background-color: #ffffff;
             
-            /* === AHORA ES FIXED, NUNCA SE MUEVE === */
-            position: fixed;
+            /* === ESTO LO HACE COMPLETAMENTE FIJO === */
+            position: sticky;
             top: 135px;  /* 85px (encabezado) + 50px (menú) */
-            left: 0;
             z-index: 998;
             
+            /* === FONDO BLANCO PARA CUBRIR EL CONTENIDO === */
+            background-color: #ffffff;
+            
+            /* === BORDES PARA DARLE MARCO === */
             border-bottom: 2px solid #1c3761;
             border-top: 2px solid #1c3761;
+            
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -174,7 +173,6 @@
 
         /* =====================================================
            CONTENEDOR GENERAL (EL RESTO SE DESPLAZA)
-           SE LE AGREGA UN MARGIN SUPERIOR PARA COMPENSAR LOS ELEMENTOS FIJOS
         ===================================================== */
 
         .contenedor {
@@ -392,10 +390,6 @@
 
         @media (max-width: 800px) {
 
-            body {
-                padding-top: 165px; /* Ajuste para móvil */
-            }
-
             .encabezado {
                 min-height: 75px;
                 padding: 8px 15px;
@@ -421,9 +415,11 @@
                 padding: 8px 15px;
             }
 
+            /* === OBJETIVO FIJO EN MÓVIL CON FONDO BLANCO === */
             .objetivo-sticky {
-                top: 125px;  /* 75px + 50px */
+                top: 125px;  /* 75px (encabezado) + 50px (menú) */
                 padding: 6px 15px;
+                background-color: #ffffff !important;
             }
 
             .objetivo-sticky h2 {
@@ -496,10 +492,6 @@
            PARA PANTALLAS MUY PEQUEÑAS (MENOS DE 480px)
         ===================================================== */
         @media (max-width: 480px) {
-            body {
-                padding-top: 145px;
-            }
-
             .logo {
                 width: 40px !important;
                 height: 28px !important;
@@ -524,8 +516,9 @@
             }
 
             .objetivo-sticky {
-                top: 110px !important;
+                top: 110px !important;  /* 60px + 50px */
                 padding: 4px 10px !important;
+                background-color: #ffffff !important;
             }
 
             .objetivo-sticky h2 {
@@ -541,7 +534,7 @@
 
 
     <!-- =====================================================
-         ENCABEZADO - FIXED (FIJO)
+         ENCABEZADO - STICKY (FIJO)
     ====================================================== -->
 
     <header class="encabezado">
@@ -551,7 +544,7 @@
 
 
     <!-- =====================================================
-         MENÚ DE NAVEGACIÓN - FIXED (FIJO)
+         MENÚ DE NAVEGACIÓN - STICKY (FIJO)
     ====================================================== -->
 
     <nav class="menu-navegacion">
@@ -577,8 +570,8 @@
 
 
     <!-- =====================================================
-         OBJETIVO - FIXED (FIJO) - COMPLETAMENTE INMÓVIL
-         AHORA CON POSITION: FIXED, NUNCA SE MUEVE
+         OBJETIVO - STICKY (FIJO) - COMPLETAMENTE INMÓVIL
+         CON FONDO BLANCO PARA CUBRIR EL CONTENIDO AL HACER SCROLL
     ====================================================== -->
 
     <section class="objetivo-sticky">
