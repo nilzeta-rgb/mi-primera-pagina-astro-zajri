@@ -287,7 +287,7 @@ const textosDescriptivos: Record<number, string> = {
       }
 
       /* =====================================================
-         TEXTO DESCRIPTIVO
+         TEXTO DESCRIPTIVO (AZUL)
          ===================================================== */
       .descripcion {
         display: block;
@@ -302,6 +302,25 @@ const textosDescriptivos: Record<number, string> = {
         position: relative;
       }
 
+      /* =====================================================
+         TEXTO ROJO (NUEVO - MODIFICABLE)
+         ===================================================== */
+      .texto-rojo {
+        display: block;
+        width: 100%;
+        margin: 5px auto 0 auto;
+        padding: 0 10px;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: bold;
+        color: #770202;
+        text-align: center;
+        position: relative;
+      }
+
+      /* =====================================================
+         NÚMERO DE PROYECTO
+         ===================================================== */
       .numero-proyecto {
         display: block;
         width: 100%;
@@ -309,7 +328,7 @@ const textosDescriptivos: Record<number, string> = {
         padding: 0;
         font-size: 14px;
         font-weight: bold;
-        color: #770202;
+        color: #333333;
         text-align: center;
         letter-spacing: 1px;
       }
@@ -407,6 +426,9 @@ const textosDescriptivos: Record<number, string> = {
         .descripcion {
           font-size: 18px;
         }
+        .texto-rojo {
+          font-size: 16px;
+        }
         .boton-menu {
           padding: 8px 16px;
           font-size: 13px;
@@ -475,6 +497,10 @@ const textosDescriptivos: Record<number, string> = {
           font-size: 18px;
           line-height: 1.35;
           text-align: center;
+        }
+        .texto-rojo {
+          font-size: 16px;
+          padding: 0 5px;
         }
         .numero-proyecto {
           font-size: 13px;
@@ -560,7 +586,7 @@ const textosDescriptivos: Record<number, string> = {
         <button class="boton-menu boton-2">INGENIERÍA - CONSULTORÍA</button>
       </a>
       <a href="/perfil-comercio" style="text-decoration: none;">
-        <button class="boton-menu boton-3">COMERCIÓ</button>
+        <button class="boton-menu boton-3">COMERCIO</button>
       </a>
       <a href="/perfil-construccion" style="text-decoration: none;">
         <button class="boton-menu boton-4">CONSTRUCCIÓN</button>
@@ -592,8 +618,8 @@ const textosDescriptivos: Record<number, string> = {
     <div class="texto-movimiento">
       <div class="texto-movimiento-contenido">
         🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        🚧 COMERCIO • CONSULTORÍA • CONSTRUCCIÓN 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        🚧 EL BIENESTAR DE NUESTROS CLIENTES 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        🚧 INICIA TU PROYECTO CON ZAJRI 🚧 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
 
@@ -625,12 +651,12 @@ const textosDescriptivos: Record<number, string> = {
         const galeria = document.getElementById("galeriaComercio");
 
         // =========================================
-        // TEXTOS DE CADA IMAGEN
+        // TEXTOS DE CADA IMAGEN (AZUL)
         // =========================================
         const textos = {
-          1: "Soluciones comerciales integrales para tu negocio",
-          2: "Asesoría y consultoría en comercio y servicios",
-          3: "Estrategias comerciales para el crecimiento empresarial",
+          1: "Articulo de primera necesidad y perecibles",
+          2: "Articulo de ferretería y equipos",
+          3: "Materiales de construcción",
           4: "Comercio y servicios para el desarrollo empresarial",
           5: "Consultoría comercial y gestión de negocios",
           6: "Estrategias de mercado y posicionamiento",
@@ -641,6 +667,26 @@ const textosDescriptivos: Record<number, string> = {
           11: "Logística y distribución comercial",
           12: "Finanzas y gestión empresarial",
           13: "ZAJRI Comercio, aliados en tu crecimiento"
+        };
+
+        // =========================================
+        // TEXTOS EN ROJO - ¡MODIFICA AQUÍ!
+        // Cada número de proyecto tiene su texto rojo personalizado
+        // =========================================
+        const textosProyecto = {
+          1: "CONSULTA EL PRODUCTO DE TU PREFERENCIA CON ANTICIPACIÓN",
+          2: "CONSULTA EL PRODUCTO DE TU PREFERENCIA CON ANTICIPACIÓN",
+          3: "CONSULTA EL PRODUCTO DE TU PREFERENCIA CON ANTICIPACIÓN",
+          4: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          5: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          6: "PERSONAL QUE LABORO P/ ELECTRO ORIENTE S.A. - IQUITOS",
+          7: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY - BASE BRETAÑA - LOTE-2",
+          8: "PERSONAL QUE LABORO P/ SCHLUMNBERGER DEL PERU - BASE BRETAÑA - LOTE-2",
+          9: "PERSONAL QUE LABORO P/ SCHLUMNBERGER DEL PERU  - BASE BRETAÑA - LOTE-2",
+          10: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          11: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          12: "PERSONAL QUE LABORO P/ SERTECPET S.A. - BASE BRETAÑA - LOTE-2",
+          13: "PERSONAL QUE LABORO P/ GRAN TIERRA ENERGY - BASE BRETAÑA - LOTE-2",
         };
 
         // =========================================
@@ -672,20 +718,25 @@ const textosDescriptivos: Record<number, string> = {
           imagen.alt = "Comercio ZAJRI - Proyecto " + numero;
           imagen.loading = numero <= 4 ? "eager" : "lazy";
 
-          // Descripción
+          // Descripción (texto azul)
           const descripcion = document.createElement("div");
           descripcion.className = "descripcion";
           descripcion.textContent = textos[numero] || "Soluciones comerciales desarrolladas por ZAJRI.";
+
+          // Texto rojo (nuevo)
+          const textoRojo = document.createElement("div");
+          textoRojo.className = "texto-rojo";
+          textoRojo.textContent = textosProyecto[numero] || "ZAJRI - Comprometidos con tu éxito";
 
           // Número de proyecto
           const numeroProyecto = document.createElement("div");
           numeroProyecto.className = "numero-proyecto";
           numeroProyecto.textContent = "PROYECTO " + numero;
 
-          // Ensamblar
+          // Ensamblar (orden: imagen, texto azul, texto rojo, número)
           proyecto.appendChild(imagen);
           proyecto.appendChild(descripcion);
-          proyecto.appendChild(numeroProyecto);
+          proyecto.appendChild(textoRojo);
 
           return proyecto;
         }
