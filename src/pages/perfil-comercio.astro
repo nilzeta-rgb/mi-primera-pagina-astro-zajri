@@ -260,47 +260,7 @@ const textosDescriptivos: Record<number, string> = {
       .proyecto:nth-child(16) { animation-delay: 1.60s; }
 
       /* =====================================================
-         CONTENEDOR DE IMAGEN CON PLACEHOLDER
-         ===================================================== */
-      .imagen-container {
-        position: relative;
-        width: 100%;
-        max-width: 650px;
-        margin: 0 auto;
-        background: #f0f0f0;
-        overflow: hidden;
-        aspect-ratio: 16/9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .imagen-container .placeholder {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-        background-size: 200% 200%;
-        animation: shimmer 1.5s infinite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #999;
-        font-size: 16px;
-        font-weight: bold;
-        z-index: 1;
-        transition: opacity 0.5s ease;
-      }
-
-      @keyframes shimmer {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
-      }
-
-      /* =====================================================
-         IMAGEN CON CARGA PROGRESIVA
+         IMAGEN
          ===================================================== */
       .proyecto img {
         display: block;
@@ -318,16 +278,7 @@ const textosDescriptivos: Record<number, string> = {
         cursor: pointer;
         transform: translateY(0) scale(1);
         filter: brightness(1);
-        transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                    filter 0.65s ease,
-                    opacity 0.5s ease;
-        opacity: 0;
-        position: relative;
-        z-index: 2;
-      }
-
-      .proyecto img.cargada {
-        opacity: 1;
+        transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.65s ease;
       }
 
       .proyecto img:hover {
@@ -352,7 +303,7 @@ const textosDescriptivos: Record<number, string> = {
       }
 
       /* =====================================================
-         TEXTO ROJO (MODIFICABLE)
+         TEXTO ROJO (NUEVO - MODIFICABLE)
          ===================================================== */
       .texto-rojo {
         display: block;
@@ -608,9 +559,6 @@ const textosDescriptivos: Record<number, string> = {
           animation: none;
           padding-left: 0;
         }
-        .imagen-container .placeholder {
-          animation: none;
-        }
       }
     </style>
   </head>
@@ -689,7 +637,7 @@ const textosDescriptivos: Record<number, string> = {
     </footer>
 
     <!-- =====================================================
-         JAVASCRIPT - DETECCIÓN AUTOMÁTICA DE IMÁGENES CON CARGA PROGRESIVA
+         JAVASCRIPT - DETECCIÓN AUTOMÁTICA DE IMÁGENES
          ===================================================== -->
     <script>
       (function() {
@@ -758,42 +706,6 @@ const textosDescriptivos: Record<number, string> = {
         }
 
         // =========================================
-        // CARGAR IMAGEN CON PLACEHOLDER Y EFECTO PROGRESIVO
-        // =========================================
-        function cargarImagenConPlaceholder(imagen, url) {
-          // Crear placeholder
-          const placeholder = document.createElement('div');
-          placeholder.className = 'placeholder';
-          placeholder.textContent = 'Cargando...';
-
-          // Contenedor
-          const container = document.createElement('div');
-          container.className = 'imagen-container';
-          container.appendChild(placeholder);
-
-          // Reemplazar la imagen en el DOM
-          imagen.parentNode.replaceChild(container, imagen);
-          container.appendChild(imagen);
-
-          // Cargar la imagen real
-          const img = new Image();
-          img.onload = function() {
-            imagen.src = url;
-            imagen.classList.add('cargada');
-            placeholder.style.opacity = '0';
-            setTimeout(function() {
-              placeholder.style.display = 'none';
-            }, 500);
-          };
-          img.onerror = function() {
-            placeholder.textContent = 'Error al cargar';
-            placeholder.style.background = '#ffcccc';
-            placeholder.style.animation = 'none';
-          };
-          img.src = url;
-        }
-
-        // =========================================
         // CREAR TARJETA
         // =========================================
         function crearProyecto(numero) {
@@ -802,6 +714,7 @@ const textosDescriptivos: Record<number, string> = {
 
           // Imagen
           const imagen = document.createElement("img");
+          imagen.src = carpeta + nombreBase + numero + extension;
           imagen.alt = "Comercio ZAJRI - Proyecto " + numero;
           imagen.loading = numero <= 4 ? "eager" : "lazy";
 
@@ -810,7 +723,7 @@ const textosDescriptivos: Record<number, string> = {
           descripcion.className = "descripcion";
           descripcion.textContent = textos[numero] || "Soluciones comerciales desarrolladas por ZAJRI.";
 
-          // Texto rojo
+          // Texto rojo (nuevo)
           const textoRojo = document.createElement("div");
           textoRojo.className = "texto-rojo";
           textoRojo.textContent = textosProyecto[numero] || "ZAJRI - Comprometidos con tu éxito";
@@ -824,11 +737,6 @@ const textosDescriptivos: Record<number, string> = {
           proyecto.appendChild(imagen);
           proyecto.appendChild(descripcion);
           proyecto.appendChild(textoRojo);
-          proyecto.appendChild(numeroProyecto);
-
-          // Iniciar carga con placeholder
-          const url = carpeta + nombreBase + numero + extension;
-          cargarImagenConPlaceholder(imagen, url);
 
           return proyecto;
         }
